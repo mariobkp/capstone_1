@@ -1,6 +1,12 @@
 # capstone_1
 
 
+## Coffee Quality
+* https://www.kaggle.com/volpatto/coffee-quality-database-from-cqi?select=arabica_data_cleaned.csv
+* Arabica and Robusta data (origin, bitterness, sweetness, color, overall quality)
+* Compare each bean type for what makes a good cup of coffee, and then merged data to explore and compare/contrast
+* Are their any shared characteristics that make a quality cup? Which countries/farms have the highest quality? 
+
 
 ## Rent the Runway
 * https://www.kaggle.com/rmisra/clothing-fit-dataset-for-size-recommendation?select=renttherunway_final_data.json
