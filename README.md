@@ -104,18 +104,23 @@ With 95% confidence I can say that of the coffee reviewed by the Coffee Quality 
 
 <hr>
 
-<p align="center">
+<p align="left">
 
-  <img src="/images/Africa.png">
-  This is an image
+  <img src="/images/West.png">
 
 </p>
 
-<center><</center>
+<p align="center">
 
-![West](images/West.png) 
-![Africa-centric](images/Africa.png)
-![East](images/East.png)
+  <img src="/images/Africa.png">
+
+</p>
+
+<p align="right">
+
+  <img src="/images/East.png">
+
+</p>
 
 
 
