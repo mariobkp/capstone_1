@@ -123,6 +123,14 @@ Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defect
 
 </p>
 
+<p align="center">
+
+  <img src="/images/SCAA)FlavorWheel.01.18.15.jpg">
+
+</p>
+
+I've included the above color wheel courtesy of the [Specialty Coffee Association of America](http://www.scaa.org/?d=scaa-flavor-wheel&page=resources) to help qualify characteristics like Aroma and Flavor. For the purposes of this analysis, only the numeric value between 0 and 10 is considered, but this could be one area of further research in the future.
+
 <hr>
 
 <p align="center">
