@@ -1,5 +1,10 @@
-# capstone_1
+# Capstone 1
 
+<p align="center">
+
+  <img src="/images/san-miguel-coffee5.jpg">
+
+</p>
 
 ## Coffee Quality
 * https://www.kaggle.com/volpatto/coffee-quality-database-from-cqi?select=arabica_data_cleaned.csv
@@ -86,8 +91,6 @@ Looking at rubric by which coffee is scored, obvious choices like acidity, after
 
 ![Quality Measure Scatter](images/QualityMeasureScatter.png)
 
-# Research on what these defects mean
-
 Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defects', 'Category.Two.Defects','Body', 'Flavor', as well as the primary column by which the coffee is ultimately scored, the 'Total.Cup.Points.' Including defects to check for negative correlation with total points.
 
 ![Quality Measure Heatmap](images/QualityMeasureHeatmap.png)
@@ -167,7 +170,17 @@ It turns out that the p-value that coffee grown around 2000 meters statistically
 
 <hr>
 
-Unfortunately it can't be all milk and honey with the coffee quality, and many samples have one defect or another. I wanted to see whether these defects were Poisson distributed. It seemed to me like a good candidate as defects include underripe beans and rocks and insects. I used the sum of Category One, Two, and Quakers per sample as the "Total Defects" measure and then found the lambda by dividing the sum of total defects by the number of samples to arrive at 4.2 defects per sample. Here are graphs of a Poisson distribution PMF and CDF with lambda of 4.2.
+Unfortunately it can't be all milk and honey with the coffee quality, and many samples have one defect or another. Here is information on the different category of defects (thanks to http://www.coffeeresearch.org/coffee/scaaclass.htm)
+
+<p align="center">
+
+  <img src="/images/defects.png">
+
+</p>
+
+Some samples also have "Quakers," which are underripe and underdeveloped beans that usually have a yellowish color. These were noted in a separate column in the original data.
+
+I wanted to see whether these defects were Poisson distributed. I used the sum of Category One, Two, and Quakers per sample as the "Total Defects" measure and then found the lambda by dividing the sum of total defects by the number of samples to arrive at 4.2 defects per sample. Here are graphs of a Poisson distribution PMF and CDF with lambda of 4.2.
 
 ![Poisson](images/PoissonPMFCDF.png)
 
@@ -194,3 +207,9 @@ After the first OLS I decided to try and see if I could improve by removing the 
 ![OLS2 graph](images/OLS2.png)
 
 If I were to further research, I'd like to find Robusta coffee bean data to add, as well as try predictive regression as these factors are probably highly correlated with each other. I'd also like to delve into the time series data later on for factors like weather, time of year, and harvest years.
+
+<p align="center">
+
+  <img src="/images/e3f.jpg">
+
+</p>
