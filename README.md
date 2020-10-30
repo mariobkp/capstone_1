@@ -75,8 +75,6 @@ After that I start plotting the distribution of samples according to a number of
 
 </p>
 
-![Sample Count by Country](images/CountByCountry.png)
-
 Now that we can see how the samples are distributed, I'd like to see how each of these countries fairs by total points, or total cup points.
 
 <p align="center">
@@ -84,8 +82,6 @@ Now that we can see how the samples are distributed, I'd like to see how each of
   <img src="/images/PointsByCountryBoxPlot.png">
 
 </p>
-
-![Points by Country](images/PointsByCountryBoxPlot.png)
 
 In addition to species, the samples are also broken down further by variety. Let's see how the distribution of varieties looks amongst the samples.
 
@@ -95,8 +91,6 @@ In addition to species, the samples are also broken down further by variety. Let
 
 </p>
 
-![Sample Count by Variety](images/CountByVariety.png)
-
 And just like with the countries of origin, let's see the breakdown of the total point spread by variety.
 
 <p align="center">
@@ -104,8 +98,6 @@ And just like with the countries of origin, let's see the breakdown of the total
   <img src="/images/PointsByVarietyBoxPlot.png">
 
 </p>
-
-![Points by Variety](images/PointsByVarietyBoxPlot.png)
 
 Now to turn more towards the numerical side, I plotted a correlation heatmap to get a better idea about these measures.
 
@@ -115,8 +107,6 @@ Now to turn more towards the numerical side, I plotted a correlation heatmap to 
 
 </p>
 
-![All Correlation Heatmap](images/AllCorrelationHeatmap.png)
-
 Looking at rubric by which coffee is scored, obvious choices like acidity, aftertaste, body or mouthfeel. Moisture and uniformity I thought were initially good to include but as almost all scores in these categories were 10s I did not feel they ultimately added much to the analysis. Sweetness would also seem important, but again almost all scored 10 so not so much explanatory power. Of the "taste" metrics, I plotted a scatter matrix with Kernel Density on the diagonal.
 
 <p align="center">
@@ -124,8 +114,6 @@ Looking at rubric by which coffee is scored, obvious choices like acidity, after
   <img src="/images/QualityMeasureScatter.png">
 
 </p>
-
-![Quality Measure Scatter](images/QualityMeasureScatter.png)
 
 Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defects', 'Category.Two.Defects','Body', 'Flavor', as well as the primary column by which the coffee is ultimately scored, the 'Total.Cup.Points.' Including defects to check for negative correlation with total points.
 
@@ -187,7 +175,7 @@ Coffee grown all over the world, what separates coffee from one region from anot
 
 Unfortunately the Cartopy shapefile did not explicitly have data regarding in which hemispheres the countries lay, so that was when I imported the second dataset and ultimately merged the DataFrames on country name. I split the data into two sets according to latitudes above and below 0.
 
-First test if quality of coffee coming from the Northern and Southern hemispheres is significantally different.
+First test if quality of coffee coming from the Northern and Southern hemispheres is significantally different at 5% significance level.
 
 * H<sub>0 is that the quality of coffee is the same regardless of whether it comes from the Northern or Southern hemispheres.
 * H<sub>A is that hemisphere matters with regards to coffee quality.
@@ -207,7 +195,7 @@ Remembering back to the sample count per country, Mexico by far has supplied the
 * H<sub>0 is that the quality of Mexican grown coffee is no different from the rest of the globe.
 * H<sub>A is that coffee from Mexico is statistically significantly different.
 
-Same process as above, and once again the p-value was incredibly small. I looked at it out to 9 decimals and it still showed as 0.000000000. In this case, the difference in quality is even more clearly different. Unfortunately not in Mexico's favor.
+Same process as above (including 5% significance level), and once again the p-value was incredibly small. I looked at it out to 9 decimals and it still showed as 0.000000000. In this case, the difference in quality is even more clearly different. Unfortunately not in Mexico's favor.
 
 <p align="center">
 
@@ -225,7 +213,7 @@ I then moved on to look at altitude. Like many crops, coffee has a particular zo
 
 Plotting the data it appears that the majority of the samples are grown between 1000 and 2000 meters, there is some evidence to suggest a positive correlation between altitude and quality at least up to 2000 meters.
 
-This led me to my next question: is coffee grown around 2000 meters statistically significantly better? This time I wanted to try a one-tail test.
+This led me to my next question: is coffee grown around 2000 meters statistically significantly better at 5% significance level? This time I wanted to try a one-tail test.
 
 * H<sub>0 is no difference in quality between samples from around 2000 m and other altitudes
 * H<sub>A is coffee grown at around 2000 meters is statistically significantly better
