@@ -69,37 +69,100 @@ I considered the columns in roughly two groups: quality measures and bean metada
 
 After that I start plotting the distribution of samples according to a number of factors. First thought, let's take a look at the number of samples by country of origin.
 
+<p align="center">
+
+  <img src="/images/CountByCountry.png)">
+
+</p>
+
 ![Sample Count by Country](images/CountByCountry.png)
 
 Now that we can see how the samples are distributed, I'd like to see how each of these countries fairs by total points, or total cup points.
+
+<p align="center">
+
+  <img src="/images/PointsByCountryBoxPlot.png)">
+
+</p>
 
 ![Points by Country](images/PointsByCountryBoxPlot.png)
 
 In addition to species, the samples are also broken down further by variety. Let's see how the distribution of varieties looks amongst the samples.
 
+<p align="center">
+
+  <img src="/images/CountByVariety.png)">
+
+</p>
+
+
 ![Sample Count by Variety](images/CountByVariety.png)
 
 And just like with the countries of origin, let's see the breakdown of the total point spread by variety.
+
+<p align="center">
+
+  <img src="/images/PointsByVarietyBoxPlot.png)">
+
+</p>
 
 ![Points by Variety](images/PointsByVarietyBoxPlot.png)
 
 Now to turn more towards the numerical side, I plotted a correlation heatmap to get a better idea about these measures.
 
+<p align="center">
+
+  <img src="/images/AllCorrelationHeatmap.png)">
+
+</p>
+
 ![All Correlation Heatmap](images/AllCorrelationHeatmap.png)
 
 Looking at rubric by which coffee is scored, obvious choices like acidity, aftertaste, body or mouthfeel. Moisture and uniformity I thought were initially good to include but as almost all scores in these categories were 10s I did not feel they ultimately added much to the analysis. Sweetness would also seem important, but again almost all scored 10 so not so much explanatory power. Of the "taste" metrics, I plotted a scatter matrix with Kernel Density on the diagonal.
+
+<p align="center">
+
+  <img src="/images/QualityMeasureScatter.png)">
+
+</p>
 
 ![Quality Measure Scatter](images/QualityMeasureScatter.png)
 
 Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defects', 'Category.Two.Defects','Body', 'Flavor', as well as the primary column by which the coffee is ultimately scored, the 'Total.Cup.Points.' Including defects to check for negative correlation with total points.
 
+<p align="center">
+
+  <img src="/images/QualityMeasureHeatmap.png">
+
+</p>
+
 ![Quality Measure Heatmap](images/QualityMeasureHeatmap.png)
 
+<hr>
+
+<p align="center">
+
+  <img src="/images/dumb_starbucks2014.jpg">
+
+</p>
+
 Total Points or Total Cup Points are the primary attribute by which we'll guage the quality of a sample of coffee, so briefly want to look at the distribution of Total Cup Points. I calculated the mean and standard deviation of the actual distribution in order to compare to a normal distribution with the same mean and standard deviation. Those values are 82.179 and 2.686 respectively.
+
+<p align="center">
+
+  <img src="/images/NormalVSActualHist.png">
+
+</p>
 
 ![Normal and Actual Distribution Histograms](images/NormalVSActualHist.png)
 
 Plotting the distribution of Total Cup Points reveals that it is not exactly normally distributed. It displays excess kurtosis, so would be called a leptokurtic distribution. This refers to the "peak" in the middle and fatter tails as compared to the normal distribution. I decided to use bootstrapping in order to normalize the distribution and get a confidence interval for the population mean. What would the average cup of coffee score?
+
+<p align="center">
+
+  <img src="/images/BootstrapTotalPoints.png">
+
+</p>
 
 ![Bootstrap Total Cup Points](images/BootstrapTotalPoints.png)
 
@@ -142,6 +205,12 @@ As the point distribution was not normal, in order to use the t-test I boostrapp
 
 Ultimately the p-value was incredibly small, in fact it came back as 0. If we look at the graph you can see why, the bootstrapped score distributions barely overlap and in fact it appears that coffee from the Southern hemisphere is markedly better.
 
+<p align="center">
+
+  <img src="/images/NorthVsSouthBootstrap.png">
+
+</p>
+
 ![North vs. South](images/NorthVsSouthBootstrap.png)
 
 Remembering back to the sample count per country, Mexico by far has supplied the most samples. I wanted to test whether that could indicate Mexican coffee is better or worse than rest of world? Or in other words, could coffee from Mexico be representative of the global quality of coffee?
@@ -151,9 +220,21 @@ Remembering back to the sample count per country, Mexico by far has supplied the
 
 Same process as above, and once again the p-value was incredibly small. I looked at it out to 9 decimals and it still showed as 0.000000000. In this case, the difference in quality is even more clearly different. Unfortunately not in Mexico's favor.
 
+<p align="center">
+
+  <img src="/images/MexicoVsRestBootstrap.png">
+
+</p>
+
 ![Mexico vs. Rest](images/MexicoVsRestBootstrap.png)
 
 I then moved on to look at altitude. Like many crops, coffee has a particular zone or sweet spot for growing as far as altitude. To investigate further I plotted Total Cup Points by altitude.
+
+<p align="center">
+
+  <img src="/images/AltitudeTotalPoints.png">
+
+</p>
 
 ![Points by Altitude](images/AltitudeTotalPoints.png)
 
@@ -182,9 +263,23 @@ Some samples also have "Quakers," which are underripe and underdeveloped beans t
 
 I wanted to see whether these defects were Poisson distributed. I used the sum of Category One, Two, and Quakers per sample as the "Total Defects" measure and then found the lambda by dividing the sum of total defects by the number of samples to arrive at 4.2 defects per sample. Here are graphs of a Poisson distribution PMF and CDF with lambda of 4.2.
 
+
+<p align="center">
+
+  <img src="/images/PoissonPMFCDF.png">
+
+</p>
+
 ![Poisson](images/PoissonPMFCDF.png)
 
 Plotting the Poisson CDF with lambda = 4.2 and the actual distribution PPF it reveals to not be quite Poisson like I expected.
+
+<p align="center">
+
+  <img src="/images/ActualVsPoisson.png">
+
+</p>
+
 
 ![Actual vs. Poisson](images/ActualVsPoisson.png)
 
@@ -192,17 +287,43 @@ Plotting the Poisson CDF with lambda = 4.2 and the actual distribution PPF it re
 
 As a summary of the hypthesis testing, I created a three-dimensional scatter plot showing the relationship between altitude, latitude, and total points.
 
-![3D scatter plot](images/AltitudeVsLatitudeVsPoints3D.png)
+
+<p align="center">
+
+  <img src="/images/AltitudeVsLatitudeVsPoints3D.png">
+
+</p>
+
 
 <hr>
 
 Finally, I wanted to perform a linear regression on the chosen metrics to see if I could create a fit model to explain the Total Cup Points. I went with the Ordinary Least Squares regression as at least intuitively the simplest choice given the number of parameters.
 
+<p align="center">
+
+  <img src="/images/OLSregression.png">
+
+</p>
+
 ![OLS summary](images/OLSregression.png)
+
+
+<p align="center">
+
+  <img src="/images/OLS1.png">
+
+</p>
 
 ![OLS graph](images/OLS1.png)
 
 After the first OLS I decided to try and see if I could improve by removing the variable that seemed to have the least power, and thus retried the OLS but replaced category two defects with mean altitude. However, after plotting the results on top of each other, along with the actual distribution of scores, it does not appear to have meaningfully changed the estimations. Not surprised by that given the extremely high F stat and R2, so may be better suited for a different type of regression. 
+
+<p align="center">
+
+  <img src="/images/OLS2.png">
+
+</p>
+
 
 ![OLS2 graph](images/OLS2.png)
 
