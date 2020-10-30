@@ -104,6 +104,9 @@ With 95% confidence I can say that of the coffee reviewed by the Coffee Quality 
 
 <hr>
 
+<center><src="images/Africa.png"></center>
+<center>This is an image</center>
+
 ![West](images/West.png) 
 ![Africa-centric](images/Africa.png)
 ![East](images/East.png)
@@ -161,9 +164,13 @@ Plotting the Poisson CDF with lambda = 4.2 and the actual distribution PPF it re
 
 ![Actual vs. Poisson](images/ActualVsPoisson.png)
 
-As a sort of summary of the findings, I created a three-dimensional scatter plot showing the relationship between altitude, latitude, and total points.
+<hr>
+
+As a summary of the hypthesis testing, I created a three-dimensional scatter plot showing the relationship between altitude, latitude, and total points.
 
 ![3D scatter plot](images/AltitudeVsLatitudeVsPoints3D.png)
+
+<hr>
 
 Finally, I wanted to perform a linear regression on the chosen metrics to see if I could create a fit model to explain the Total Cup Points. I went with the Ordinary Least Squares regression as at least intuitively the simplest choice given the number of parameters.
 
