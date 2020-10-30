@@ -104,11 +104,9 @@ With 95% confidence I can say that of the coffee reviewed by the Coffee Quality 
 
 <hr>
 
-![West](images/West.png) ![Africa-centric](images/Africa.png)
-| | ![East](images/East.png) |  |
-
-
-
+![West](images/West.png) 
+![Africa-centric](images/Africa.png)
+![East](images/East.png)
 
 
 
@@ -120,8 +118,8 @@ Unfortunately the Cartopy shapefile did not explicitly have data regarding in wh
 
 First test if quality of coffee coming from the Northern and Southern hemispheres is significantally different.
 
-* H<sub>&0 is that the quality of coffee is the same regardless of whether it comes from the Northern or Southern hemispheres.
-* H<sub>&A is that hemisphere matters with regards to coffee quality.
+* H<sub>0 is that the quality of coffee is the same regardless of whether it comes from the Northern or Southern hemispheres.
+* H<sub>A is that hemisphere matters with regards to coffee quality.
 
 As the point distribution was not normal, in order to use the t-test I boostrapped the Total Cup Point score for the North and South and uses the Scipy.Stats module.
 
@@ -131,8 +129,8 @@ Ultimately the p-value was incredibly small, in fact it came back as 0. If we lo
 
 Remembering back to the sample count per country, Mexico by far has supplied the most samples. I wanted to test whether that could indicate Mexican coffee is better or worse than rest of world? Or in other words, could coffee from Mexico be representative of the global quality of coffee?
 
-* H<sub>&0 is that the quality of Mexican grown coffee is no different from the rest of the globe.
-* H<sub>&A is that coffee from Mexico is statistically significantly different.
+* H<sub>0 is that the quality of Mexican grown coffee is no different from the rest of the globe.
+* H<sub>A is that coffee from Mexico is statistically significantly different.
 
 Same process as above, and once again the p-value was incredibly small. I looked at it out to 9 decimals and it still showed as 0.000000000. In this case, the difference in quality is even more clearly different. Unfortunately not in Mexico's favor.
 
@@ -146,8 +144,8 @@ Plotting the data it appears that the majority of the samples are grown between 
 
 This led me to my next question: is coffee grown around 2000 meters statistically significantly better? This time I wanted to try a one-tail test.
 
-* H<sub>&0 is no difference in quality between samples from around 2000 m and other altitudes
-* H<sub>&A is coffee grown at around 2000 meters is statistically significantly better
+* H<sub>0 is no difference in quality between samples from around 2000 m and other altitudes
+* H<sub>A is coffee grown at around 2000 meters is statistically significantly better
   
 This time I used the Mann-Whitney U-test as the t-test requires the distributions to be normally distributed, however the Mann-Whitney does not. It's well suited for non-parametric data.
 
@@ -155,31 +153,26 @@ It turns out that the p-value that coffee grown around 2000 meters statistically
 
 <hr>
 
+Unfortunately it can't be all milk and honey with the coffee quality, and many samples have one defect or another. I wanted to see whether these defects were Poisson distributed. It seemed to me like a good candidate as defects include underripe beans and rocks and insects. I used the sum of Category One, Two, and Quakers per sample as the "Total Defects" measure and then found the lambda by dividing the sum of total defects by the number of samples to arrive at 4.2 defects per sample. Here are graphs of a Poisson distribution PMF and CDF with lambda of 4.2.
 
+![Poisson](images/PoissonPMFCDF.png)
 
+Plotting the Poisson CDF with lambda = 4.2 and the actual distribution PPF it reveals to not be quite Poisson like I expected.
 
-
-
-
-
-# poisson distribution? Hypothesis test? Log likelihood
-# Use mean and std of total.cup.points to plot pdf or PMF if normal. Hypothesis test if normal?
-# Run CLT or boostrap from point stats (plot compared to normal dist with same mean, std)
-# What would regression do? goal of regression?
-
-
-
-
+![Actual vs. Poisson](images/ActualVsPoisson.png)
 
 As a sort of summary of the findings, I created a three-dimensional scatter plot showing the relationship between altitude, latitude, and total points.
 
-
-
+![3D scatter plot](images/AltitudeVsLatitudeVsPoints3D.png)
 
 Finally, I wanted to perform a linear regression on the chosen metrics to see if I could create a fit model to explain the Total Cup Points. I went with the Ordinary Least Squares regression as at least intuitively the simplest choice given the number of parameters.
 
+![OLS summary](images/OLSregression.png)
 
+![OLS graph](images/OLS1.png)
 
 After the first OLS I decided to try and see if I could improve by removing the variable that seemed to have the least power, and thus retried the OLS but replaced category two defects with mean altitude. However, after plotting the results on top of each other, along with the actual distribution of scores, it does not appear to have meaningfully changed the estimations. Not surprised by that given the extremely high F stat and R2, so may be better suited for a different type of regression. 
+
+![OLS2 graph](images/OLS2.png)
 
 If I were to further research, I'd like to find Robusta coffee bean data to add, as well as try predictive regression as these factors are probably highly correlated with each other. I'd also like to delve into the time series data later on for factors like weather, time of year, and harvest years.
