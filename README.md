@@ -105,7 +105,10 @@ With 95% confidence I can say that of the coffee reviewed by the Coffee Quality 
 <hr>
 
 ![West](images/West.png) ![Africa-centric](images/Africa.png)
-              ![East](images/East.png) 
+              
+<div style="float:center;margin:0 10px 10px 0" markdown="1">
+    ![East](images/East.png)
+</div> 
 
 
 
