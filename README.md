@@ -125,7 +125,7 @@ Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defect
 
 <p align="center">
 
-  <img src="/images/SCAA)FlavorWheel.01.18.15.jpg">
+  <img src="/images/SCAA_FlavorWheel.01.18.15.jpg">
 
 </p>
 
