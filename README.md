@@ -104,11 +104,11 @@ With 95% confidence I can say that of the coffee reviewed by the Coffee Quality 
 
 <hr>
 
-| ![West]("images/West.png") |                |
+![West]("images/West.png")
 
-|                | ![Africa-centric]("images/Africa.png") |                |
+![Africa-centric]("images/Africa.png")
 
-|                | ![East]("images/East.png") |
+![East]("images/East.png") 
 
 In looking for plotting geographical data from the global perspective, first encountered basemap (which is apparently deprecated and would not work with currently supported Pandas or Matplotlib), so switched to Cartopy package. Using a shapefile and the .reader method to extract and plot the countries of origin.
 
