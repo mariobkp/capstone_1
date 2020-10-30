@@ -22,6 +22,10 @@ Additionally, to aid in the analysis by hemisphere, I used a second data set on 
 
 In initially looking at the data, a few columns were irrelevant (too many null values, no explanatory power, redundant), but of the useful columns they were surprisingly whole. There were a few misplaced decimals and spelling errors to correct, but very few null values that were dropped.
 
+Start off exploratory data analysis by looking at the usual suspects, df.shape, df.info, df.describe, to get a feel for the columns and data. A few columns were irrelevant (too many null values, no explanatory power, redundant), but of the useful columns they were surprisingly whole. There were also few misplaced decimals and spelling errors to correct, but very few null values that were dropped.
+
+At this point I start removing any excess columns (for example there was an unnamed column, and also a column that was just the lower case version of another column). It also starts becoming apparent which columns are going to be central to the analysis.
+
 I considered the columns in roughly two groups: quality measures and bean metadata (including origin/farm)).
 
 ### The quality measures:
@@ -56,13 +60,11 @@ I considered the columns in roughly two groups: quality measures and bean metada
 * Processing Method
 * Species (Arabica / Robusta)
 
-Start off exploratory data analysis by looking at the usual suspects, df.shape, df.info, df.describe, to get a feel for the columns and data. At this point I start removing any excess columns (for example there was an unnamed column, and also a column that was just the lower case version of another column). It also starts becoming apparent which columns are going to be central to the analysis.
-
-
+<hr>
 
 After that I start plotting the distribution of samples according to a number of factors. First thought, let's take a look at the number of samples by country of origin.
 
-
+![Sample Count by Country](images/CountByCountry.png)
 
 
 Now that we can see how the samples are distributed, I'd like to see how each of these countries fairs by total points, or total cup points.
