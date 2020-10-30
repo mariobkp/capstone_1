@@ -67,7 +67,7 @@ I considered the columns in roughly two groups: quality measures and bean metada
 
 <hr>
 
-After that I start plotting the distribution of samples according to a number of factors. First thought, let's take a look at the number of samples by country of origin.
+After that I start plotting the distribution of samples according to a number of factors. First thought, let us take a look at the number of samples by country of origin.
 
 <p align="center">
 
@@ -75,7 +75,7 @@ After that I start plotting the distribution of samples according to a number of
 
 </p>
 
-Now that we can see how the samples are distributed, I'd like to see how each of these countries fairs by total points, or total cup points.
+Now that we can see how the samples are distributed, I would like to see how each of these countries fairs by total points, or total cup points.
 
 <p align="center">
 
@@ -83,7 +83,7 @@ Now that we can see how the samples are distributed, I'd like to see how each of
 
 </p>
 
-In addition to species, the samples are also broken down further by variety. Let's see how the distribution of varieties looks amongst the samples.
+In addition to species, the samples are also broken down further by variety. Let us see how the distribution of varieties looks amongst the samples.
 
 <p align="center">
 
@@ -91,7 +91,7 @@ In addition to species, the samples are also broken down further by variety. Let
 
 </p>
 
-And just like with the countries of origin, let's see the breakdown of the total point spread by variety.
+And just like with the countries of origin, let us see the breakdown of the total point spread by variety.
 
 <p align="center">
 
@@ -107,7 +107,7 @@ Now to turn more towards the numerical side, I plotted a correlation heatmap to 
 
 </p>
 
-Looking at rubric by which coffee is scored, obvious choices like acidity, aftertaste, body or mouthfeel. Moisture and uniformity I thought were initially good to include but as almost all scores in these categories were 10s I did not feel they ultimately added much to the analysis. Sweetness would also seem important, but again almost all scored 10 so not so much explanatory power. Of the "taste" metrics, I plotted a scatter matrix with Kernel Density on the diagonal.
+Looking at rubric by which coffee is scored, obvious choices like acidity, aftertaste, body or mouthfeel. Moisture and uniformity I thought were initially good to include but as almost all scores in these categories were 10 I did not feel they ultimately added much to the analysis. Sweetness would also seem important, but again almost all scored 10 so not so much explanatory power. Of the "taste" metrics, I plotted a scatter matrix with Kernel Density on the diagonal.
 
 <p align="center">
 
@@ -129,7 +129,7 @@ Narrow down to 'Acidity', 'Aftertaste', 'Aroma', 'Balance', 'Category.One.Defect
 
 </p>
 
-I've included the above color wheel courtesy of the [Specialty Coffee Association of America](http://www.scaa.org/?d=scaa-flavor-wheel&page=resources) to help qualify characteristics like Aroma and Flavor. For the purposes of this analysis, only the numeric value between 0 and 10 is considered, but this could be one area of further research in the future.
+I have included the above color wheel courtesy of the [Specialty Coffee Association of America](http://www.scaa.org/?d=scaa-flavor-wheel&page=resources) to help qualify characteristics like Aroma and Flavor. For the purposes of this analysis, only the numeric value between 0 and 10 is considered, but this could be one area of further research in the future.
 
 <hr>
 
@@ -139,7 +139,7 @@ I've included the above color wheel courtesy of the [Specialty Coffee Associatio
 
 </p>
 
-Total Points or Total Cup Points are the primary attribute by which we'll guage the quality of a sample of coffee, so briefly want to look at the distribution of Total Cup Points. I calculated the mean and standard deviation of the actual distribution in order to compare to a normal distribution with the same mean and standard deviation. Those values are 82.179 and 2.686 respectively.
+Total Points or Total Cup Points are the primary attribute by which we will guage the quality of a sample of coffee, so I briefly want to look at the distribution of Total Cup Points. I calculated the mean and standard deviation of the actual distribution in order to compare to a normal distribution with the same mean and standard deviation. Those values are 82.179 and 2.686 respectively.
 
 <p align="center">
 
@@ -292,7 +292,7 @@ After the first OLS I decided to try and see if I could improve by removing the 
 
 </p>
 
-If I were to further research, I'd like to find Robusta coffee bean data to add, as well as try predictive regression as these factors are probably highly correlated with each other. I'd also like to delve into the time series data later on for factors like weather, time of year, and harvest years.
+In the future for further research, I would like to find Robusta coffee bean data to add, as well as revisit the inferential regresion for violations (like multicollinearity and heteroskedasticity). I would also like to perform predictive regression for more predictive power without having to worry about the aforementioned violations. Additionally I would like to delve into the time series data later on for factors like weather, time of year, and harvest years.
 
 <p align="center">
 
