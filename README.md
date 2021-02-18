@@ -1,4 +1,4 @@
-# Capstone 1
+# Arabica Coffee Quality Analysis
 
 <p align="center">
 
